@@ -43,17 +43,12 @@ function saveStreams() {
 // ================================
 // UNIVERSAL STREAM REDIRECT
 // ================================
-app.get("/stream/:id", (req, res) => {
-  const id = req.params.id;
-  if (!streams[id]) return res.status(404).send("Stream not found");
-
-  const url = streams[id].trim();
-
-  // Set cache headers
-  res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+app.post("/stream", (req, res) => {
+  const { id } = req.body;
+  if (!id || !streams[id]) return res.status(404).send("Stream not found");
 
   // Redirect to real stream URL
-  res.redirect(url);
+  res.redirect(streams[id].trim());
 });
 
 // ================================
@@ -130,7 +125,6 @@ app.post("/dashboard/add", (req, res) => {
   let { id, url } = req.body;
   if (!id || !url) return res.send("Invalid input <a href='/dashboard'>Back</a>");
 
-  // sanitize id
   const idSanitized = id.trim().replace(/\s+/g, "_").toLowerCase();
   streams[idSanitized] = url.trim();
   saveStreams();
@@ -160,7 +154,7 @@ app.post("/dashboard/delete", (req, res) => {
 });
 
 // ================================
-// HOME PAGE (HIDDEN LINKS)
+// HOME PAGE (FULLY HIDDEN LINKS)
 // ================================
 app.get("/", (req, res) => {
   let html = `
@@ -182,16 +176,26 @@ button { padding:6px 12px; background:#28a745; color:#fff; border:none; border-r
 `;
 
   for (let key in streams) {
-    // Use JS redirect buttons to hide real URLs
-    html += `<li><button onclick="redirect('${key}')">${key}</button></li>`;
+    // Button that sends POST request via JS to hide the link
+    html += `<li><button onclick="playStream('${key}')">${key}</button></li>`;
   }
 
   html += `</ul>
 
 <script>
-function redirect(id) {
-  // Redirect via /stream/:id
-  window.location.href = '/stream/' + id;
+function playStream(id) {
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = '/stream';
+
+  const input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = 'id';
+  input.value = id;
+
+  form.appendChild(input);
+  document.body.appendChild(form);
+  form.submit();
 }
 </script>
 
