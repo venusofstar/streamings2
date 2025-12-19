@@ -172,7 +172,7 @@ app.get("/", (req, res) => {
 <style>
 body { font-family: Arial; background:#f4f4f4; padding:20px }
 li { margin:10px 0; }
-a { text-decoration:none; padding:6px 12px; background:#28a745; color:#fff; border-radius:4px; display:inline-block; }
+button { padding:6px 12px; background:#28a745; color:#fff; border:none; border-radius:4px; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -182,10 +182,23 @@ a { text-decoration:none; padding:6px 12px; background:#28a745; color:#fff; bord
 `;
 
   for (let key in streams) {
-    html += `<li><a href="/stream/${key}" target="_blank">${key}</a></li>`;
+    // Use JS redirect buttons to hide real URLs
+    html += `<li><button onclick="redirect('${key}')">${key}</button></li>`;
   }
 
-  html += `</ul><br><a href="/dashboard">Open Dashboard</a></body></html>`;
+  html += `</ul>
+
+<script>
+function redirect(id) {
+  // Redirect via /stream/:id
+  window.location.href = '/stream/' + id;
+}
+</script>
+
+<br><a href="/dashboard">Open Dashboard</a>
+</body>
+</html>
+`;
 
   res.send(html);
 });
