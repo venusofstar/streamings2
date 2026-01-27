@@ -19,7 +19,7 @@ love_stories_tv: 'https://84e619480232400a842ce499d053458a.mediatailor.us-east-1
 };
 
 // 🎬 Proxy for .m3u8 playlist
-app.get('/:stream/playlist.m3u8', (req, res) => {
+app.get('/:stream/vod.m3u8', (req, res) => {
   const key = req.params.stream;
   const streamUrl = streams[key];
 
