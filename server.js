@@ -57,51 +57,33 @@ app.get('/segment.ts', (req, res) => {
     .pipe(res);
 });
 
-// 🏠 Homepage: Channel List UI
-app.get('/', (req, res) => {
-  const channelList = Object.keys(streams)
-    .map(name => `<li><a href="/${name}/playlist.m3u8" target="_blank">${name}</a></li>`)
-    .join('');
-
+/* ================= HOME ================= */
+app.get("/", (req, res) => {
   res.send(`
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>CHANNEL LIST</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-          background: #111;
-          color: #fff;
-          padding: 20px;
-        }
-        h1 {
-          text-align: center;
-          color: #f9c80e;
-        }
-        ul {
-          list-style: none;
-          padding: 0;
-        }
-        li {
-          margin: 8px 0;
-        }
-        a {
-          color: #61dafb;
-          text-decoration: none;
-          font-size: 1.1em;
-        }
-        a:hover {
-          text-decoration: underline;
-        }
-      </style>
-    </head>
-    <body>
-      <h1>CHANNEL LIST</h1>
-      <ul>${channelList}</ul>
-    </body>
-    </html>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>HONOR TV PH</title>
+    <style>
+      body{
+        margin:0;height:100vh;display:flex;justify-content:center;align-items:center;
+        background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+        font-family:Arial;color:#fff;text-align:center
+      }
+      .box{
+        background:rgba(0,0,0,.45);padding:30px 40px;border-radius:16px;
+        box-shadow:0 10px 30px rgba(0,0,0,.5);max-width:420px
+      }
+      h1{color:#00e5ff;margin:0}
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>📺 HONOR TV PH</h1>
+      <p>Subscription Always Available</p>
+    </div>
+  </body>
+  </html>
   `);
 });
 
