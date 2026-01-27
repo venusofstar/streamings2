@@ -94,7 +94,7 @@ app.get('/', (req, res) => {
   <div class="box">
     <h1>📺 HONOR TV PH</h1>
     <p>Enjoy Watching Movies</p>
-    <p><small>Stream is proxied</small></p>
+    <p><small>@2025</small></p>
   </div>
 </body>
 </html>
