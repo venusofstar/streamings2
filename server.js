@@ -10,8 +10,8 @@ const streams = {
   thekingdom:
     'https://tevh.9ljp.com/vod/1/2026/01/24/6d34af1ff298/index5.m3u8?wsSecret=5cb7a607a15beb210224810e76db31b4&wsTime=69783c86',
 
-  love_stories_tv:
-    'https://84e619480232400a842ce499d053458a.mediatailor.us-east-1.amazonaws.com/v1/manifest/04fd913bb278d8775298c26fdca9d9841f37601f/ONO_LoveStoriesTV/f512431a-8ffb-4a80-b8a4-e06c99400c29/3.m3u8',
+  backin_actiontagalog:
+    'https://ia601806.us.archive.org/2/items/back-in-action-tagalog-480-p/Back%20in%20Action%20%5BTagalog%5D-480P.mp4',
 
   UNTOLD_2025:
     'https://tevh.9ljp.com/vod/1/2025/08/01/bd4120b363da/index5.m3u8?wsSecret=6e520070865cdb80edac26888b4fb7d9&wsTime=688e0ebd'
