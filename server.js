@@ -9,12 +9,16 @@ const port = process.env.PORT || 3000;
 const streams = {
   thekingdom:
     'https://tevh.9ljp.com/vod/1/2026/01/24/6d34af1ff298/index5.m3u8?wsSecret=5cb7a607a15beb210224810e76db31b4&wsTime=69783c86',
-
+  
+  countdown_hero:
+    'https://vod3.cf.dmcdn.net/sec2(0BthFHqVzUjgSkAGuKrPavSRG3jGLX6LJIlCkUAM5kPcrSjwxgXRXwlRTskDH5jNFs1KG1m5FkrJ9VYQ3jT6VLrUlPUSFqoQbTCyrwFy93A80A-6OL3lKKKtCj7agwk-VKLLFcGkLzi3koNc-GzAyDsNWGqQ3tqFQrYZfjCYuQiI13Ggu0Yxwk3njAKHcqGzNA4LrqMOSK-um_bLO4auYw)/video/fmp4/603048526/h264_aac_vert/3/manifest.m3u8#cell=cf3',
   backin_actiontagalog:
     'https://ia601806.us.archive.org/2/items/back-in-action-tagalog-480-p/Back%20in%20Action%20%5BTagalog%5D-480P.mp4',
 
   UNTOLD_2025:
     'https://tevh.9ljp.com/vod/1/2025/08/01/bd4120b363da/index5.m3u8?wsSecret=6e520070865cdb80edac26888b4fb7d9&wsTime=688e0ebd'
+
+
 };
 
 /* ================= M3U8 PROXY ================= */
